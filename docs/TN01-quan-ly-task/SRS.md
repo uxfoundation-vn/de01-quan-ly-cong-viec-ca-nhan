@@ -402,5 +402,6 @@ Bản EN: `[chờ bổ sung]`.
 | Offline | Toàn bộ chức năng chạy không cần mạng |
 | Dữ liệu | Không mất dữ liệu khi app bị tắt đột ngột hoặc khi cập nhật phiên bản app; lưu ngay khi app xuống nền |
 | Quyền riêng tư | Không gửi tiêu đề, ghi chú, tên nhãn ra ngoài; analytics chỉ gửi sự kiện |
+| Log / audit | Ghi trên máy mỗi lần tạo, sửa, xoá, hoàn tác việc kèm thời điểm; không ghi tiêu đề và ghi chú của việc |
 | Tracking | Tạo việc (nguồn: thêm nhanh / mở rộng; có hạn / ưu tiên / nhãn), sửa, xoá, hoàn tác xoá, tạo / đổi tên / xoá nhãn |
 | Accessibility | Nút có nhãn cho trình đọc màn hình; mức ưu tiên không chỉ phân biệt bằng màu; vùng chạm ≥ 44 pt; hỗ trợ cỡ chữ hệ thống; xoá có thao tác thay thế cho vuốt |

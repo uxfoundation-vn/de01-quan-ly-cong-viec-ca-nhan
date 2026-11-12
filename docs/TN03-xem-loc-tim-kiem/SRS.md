@@ -308,5 +308,6 @@ Bản EN: `[chờ bổ sung]`.
 | Offline | Toàn bộ chức năng chạy không cần mạng |
 | Dữ liệu | Bộ lọc và cách sắp xếp giữ qua các lần mở app |
 | Quyền riêng tư | Không gửi từ khoá tìm kiếm ra ngoài; analytics chỉ ghi có tìm và có kết quả hay không |
+| Log / audit | Không ghi từ khoá tìm kiếm; chỉ ghi lỗi tải dữ liệu kèm thời điểm |
 | Tracking | Xem tab, áp bộ lọc (loại, số giá trị), đổi sắp xếp, tìm (có / không kết quả), chạm kết quả, bấm nút ở màn trống |
 | Accessibility | Tiêu đề nhóm là heading cho trình đọc màn hình; badge được đọc thành "{n} việc hôm nay"; nhóm Quá hạn không chỉ phân biệt bằng màu; hỗ trợ cỡ chữ hệ thống |

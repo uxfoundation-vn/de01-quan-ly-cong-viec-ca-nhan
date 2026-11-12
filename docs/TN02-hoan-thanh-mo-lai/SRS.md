@@ -266,5 +266,7 @@ MSG-07 dùng lại từ SRS TN01. Bản EN: `[chờ bổ sung]`.
 | Hiệu năng | Phản hồi giao diện khi tích ≤ 100 ms; hiệu ứng 200–300 ms; **SCR-07** mở ≤ 500 ms với 2.000 việc đã xong |
 | Chuyển động | Tôn trọng cài đặt giảm chuyển động của hệ thống: bỏ hiệu ứng, giữ thay đổi trạng thái |
 | Dữ liệu | Không mất trạng thái khi app bị tắt trong lúc chờ hoàn tác: đã qua 1 giây thì đã lưu `DA_XONG` |
+| Bảo mật | Dữ liệu chỉ lưu trên máy, không gửi ra ngoài; nội dung việc không đưa vào sự kiện tracking |
+| Log / audit | Ghi trên máy mỗi lần hoàn thành, mở lại, xoá hàng loạt (số việc), hoàn tác, kèm thời điểm |
 | Tracking | Hoàn thành (nguồn: ô tròn / vuốt / chi tiết), hoàn tác, mở lại, xoá tất cả (số lượng) |
 | Accessibility | Trình đọc màn hình đọc "Đánh dấu hoàn thành {tiêu đề}"; có hành động thay thế cho vuốt; trạng thái xong không chỉ báo bằng màu |
