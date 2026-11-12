@@ -121,6 +121,8 @@ AC04: Việc rời danh sách → snackbar "Đã hoàn thành" kèm Hoàn tác t
 
 #### US1.2 Đánh dấu xong ở màn chi tiết
 
+User Story: Là người dùng, tôi muốn đánh dấu xong ngay ở màn chi tiết để không phải quay lại danh sách.
+
 AC01: Ô tròn ở màn chi tiết hoạt động như trên danh sách, nhưng người dùng vẫn ở lại màn chi tiết.
 
 AC02: Màn chi tiết hiện "Đã hoàn thành lúc {giờ}" ngay dưới tiêu đề.
@@ -139,6 +141,8 @@ AC03: Chưa có việc nào xong → màn trống giải thích việc xong sẽ
 
 #### US2.2 Mở lại việc
 
+User Story: Là người dùng, tôi muốn mở lại việc chưa thật sự xong để tiếp tục theo dõi việc đó.
+
 AC01: Bỏ tích ô tròn → việc về `CHUA_XONG`, rời tab Đã xong, báo đã chuyển về danh sách nào.
 
 AC02: Hạn, ưu tiên, nhãn giữ nguyên; hạn đã qua thì việc hiện ở nhóm Quá hạn.
@@ -146,6 +150,8 @@ AC02: Hạn, ưu tiên, nhãn giữ nguyên; hạn đã qua thì việc hiện �
 ### UC3. Dọn việc đã xong
 
 #### US3.1 Xoá tất cả việc đã xong
+
+User Story: Là người dùng, tôi muốn xoá hàng loạt việc đã xong để dọn danh sách cũ.
 
 AC01: Menu ⋯ ở tab Đã xong có "Xoá tất cả việc đã xong", chỉ bật khi có ít nhất 1 việc.
 

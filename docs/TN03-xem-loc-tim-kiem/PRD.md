@@ -124,6 +124,8 @@ AC04: Qua 00:00 khi app đang mở → danh sách tự tính lại.
 
 #### US1.2 Xem việc sắp tới và tất cả việc
 
+User Story: Là người dùng, tôi muốn xem việc sắp tới theo ngày và toàn bộ việc để chuẩn bị trước.
+
 AC01: Sắp tới nhóm theo từng ngày trong 7 ngày tới, sau đó là nhóm Sau này.
 
 AC02: Tất cả gồm cả việc không có hạn, nhóm: Quá hạn, Có hạn, Không có hạn.
@@ -145,6 +147,8 @@ AC03: Lọc không ra việc nào → màn trống nói rõ do bộ lọc, có n
 AC04: Bộ lọc được nhớ riêng cho từng danh sách, kể cả khi đóng app.
 
 #### US2.2 Sắp xếp
+
+User Story: Là người dùng, tôi muốn đổi cách sắp xếp danh sách để xem việc theo thứ tự phù hợp.
 
 AC01: Sắp xếp: Theo hạn (mặc định), Theo ưu tiên, Mới tạo trước.
 

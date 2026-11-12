@@ -132,6 +132,8 @@ AC06: Việc vừa tạo không thuộc danh sách đang xem (ví dụ hạn tu�
 
 #### US1.2 Thêm chi tiết khi tạo
 
+User Story: Là người dùng, tôi muốn đặt hạn, ưu tiên, nhãn ngay lúc ghi việc để biết việc nào gấp và thuộc nhóm nào.
+
 AC01: Trong ô nhập có nút chọn hạn, ưu tiên, nhãn; chọn xong quay lại ô nhập, bàn phím vẫn giữ.
 
 AC02: Chọn hạn có lối tắt Hôm nay, Ngày mai, Cuối tuần, Tuần sau và lịch tháng; giờ là tuỳ chọn.
@@ -171,6 +173,8 @@ AC04: Hoàn tác đưa việc về đúng vị trí cũ, giữ nguyên mọi chi
 ### UC4. Quản lý nhãn
 
 #### US4.1 Đổi tên và xoá nhãn
+
+User Story: Là người dùng, tôi muốn đổi tên và xoá nhãn để giữ hệ thống nhãn gọn gàng.
 
 AC01: Cài đặt → Nhãn liệt kê mọi nhãn kèm số việc đang gắn.
 
