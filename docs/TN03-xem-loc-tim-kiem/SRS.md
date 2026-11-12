@@ -53,7 +53,7 @@ stateDiagram-v2
   DANG_LOC --> CO_DU_LIEU : Xoá lọc
   DANG_LOC --> LOC_KHONG_CO : Không việc nào khớp
   LOC_KHONG_CO --> CO_DU_LIEU : Xoá lọc
-  CO_DU_LIEU --> TRONG_DA_XONG : Hoàn thành việc cuối
+  CO_DU_LIEU --> TRONG_DA_XONG : Hoàn thành hoặc xoá việc cuối
   TRONG_LAN_DAU --> CO_DU_LIEU : Tạo việc đầu tiên
   TRONG_DA_XONG --> CO_DU_LIEU : Thêm việc
 ```

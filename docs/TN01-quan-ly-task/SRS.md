@@ -58,7 +58,8 @@ stateDiagram-v2
   CHUA_XONG --> DANG_XOA : Xoá
   QUA_HAN --> DANG_XOA : Xoá
   DA_XONG --> DANG_XOA : Xoá
-  DANG_XOA --> CHUA_XONG : Hoàn tác trong 5 giây
+  DANG_XOA --> CHUA_XONG : Hoàn tác trong 5 giây, việc trước đó chưa xong
+  DANG_XOA --> DA_XONG : Hoàn tác trong 5 giây, việc trước đó đã xong
   DANG_XOA --> [*] : Hết 5 giây, xoá vĩnh viễn
 ```
 
@@ -343,7 +344,7 @@ Nằm phía trên nút "+", hiện 5 giây; gồm nội dung và nút "Hoàn tá
 
 ## 8. Dữ liệu và thao tác
 
-App lưu dữ liệu trên thiết bị, không gọi API. Bảng dưới mô tả thao tác dữ liệu theo đúng vai trò của mục API trong template.
+App lưu dữ liệu trên thiết bị, không gọi API. Bảng dưới mô tả thao tác dữ liệu, thay cho mục API ở các đề có máy chủ.
 
 | **Thao tác** | **Input chính** | **Output chính** | **Ghi chú** |
 | --- | --- | --- | --- |

@@ -2,7 +2,7 @@
 
 > **Mã:** DE01 · **Độ khó:** 1/8 · **Vai trò:** 1 (người dùng) · **Nền tảng:** App iOS / Android `[giả định]`
 
-App giúp một người ghi lại và hoàn thành việc cần làm hằng ngày. Dữ liệu lưu trên máy, không cần tài khoản, dùng offline. Đề gồm 3 tính năng; mỗi tính năng có 1 PRD và 1 SRS riêng, viết theo template Check-in online.
+App giúp một người ghi lại và hoàn thành việc cần làm hằng ngày. Dữ liệu lưu trên máy, không cần tài khoản, dùng offline. Đề gồm 3 tính năng; mỗi tính năng có 1 PRD và 1 SRS riêng.
 
 ## Tính năng
 
