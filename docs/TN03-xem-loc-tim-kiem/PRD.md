@@ -191,9 +191,9 @@ AC04: Không có kết quả → nói rõ không tìm thấy, gợi ý kiểm tr
 
 ## 10. Câu hỏi mở
 
-> Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
+> Mọi câu hỏi dưới đây đã được PO chốt ngày 13/11/2026; quyết định ghi sau mỗi câu và đã cập nhật vào SRS.
 
 - Nhóm Quá hạn có thu gọn được không, có giới hạn số việc hiển thị không? → **Đã chốt:** Thu gọn được; mặc định thu gọn khi > 5 việc, nhớ lựa chọn theo tab (SRS BR-29).
-- Sắp tới hiện 7 ngày hay 14 ngày?
+- Sắp tới hiện 7 ngày hay 14 ngày? → **Đã chốt:** 7 ngày, phần còn lại vào "Sau này" (SRS BR-20).
 - Tìm kiếm có cần lọc kèm (nhãn, trạng thái) ở MVP không? → **Đã chốt:** Có lọc kèm theo trạng thái, nhãn, ưu tiên ngay trên màn tìm kiếm (SRS BR-26).
-- Bộ lọc có nên áp dụng chung cho mọi danh sách thay vì nhớ riêng?
+- Bộ lọc có nên áp dụng chung cho mọi danh sách thay vì nhớ riêng? → **Đã chốt:** Không. Nhớ riêng từng danh sách (SRS BR-24).

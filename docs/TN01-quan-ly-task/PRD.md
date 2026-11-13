@@ -205,10 +205,10 @@ AC03: Xoá nhãn chỉ gỡ nhãn khỏi các việc, không xoá việc; hỏi 
 
 ## 10. Câu hỏi mở
 
-> Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
+> Mọi câu hỏi dưới đây đã được PO chốt ngày 13/11/2026; quyết định ghi sau mỗi câu và đã cập nhật vào SRS.
 
-- Tạo việc từ Hôm nay có tự gán hạn hôm nay không, hay để trống?
-- Có cho chọn ngày đã qua làm hạn không?
-- Giới hạn 3 nhãn mỗi việc và 20 nhãn trong app có đủ không?
+- Tạo việc từ Hôm nay có tự gán hạn hôm nay không, hay để trống? → **Đã chốt:** Có, tự gán hạn hôm nay (SRS BR-06).
+- Có cho chọn ngày đã qua làm hạn không? → **Đã chốt:** Có, kèm ghi chú "Việc sẽ hiện là quá hạn" (SRS BR-03).
+- Giới hạn 3 nhãn mỗi việc và 20 nhãn trong app có đủ không? → **Đã chốt:** Giữ 3 nhãn mỗi việc, 20 nhãn trong app; là cấu hình, nới được sau (SRS BR-05).
 - Nhãn có cần màu ở MVP không, hay để phase sau? → **Đã chốt:** Có màu ở MVP, bảng 12 màu (SRS BR-05).
 - Bản nháp ô nhập giữ trong bao lâu? → **Đã chốt:** Tự điền lại trong 12 giờ, sau đó chuyển vào Bản nháp lưu trữ (SRS BR-28).

@@ -180,9 +180,9 @@ AC03: Xoá một việc đã xong bằng vuốt trái như ở [TN01](../TN01-qu
 
 ## 10. Câu hỏi mở
 
-> Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
+> Mọi câu hỏi dưới đây đã được PO chốt ngày 13/11/2026; quyết định ghi sau mỗi câu và đã cập nhật vào SRS.
 
-- Có tự dọn việc đã xong sau 30 hay 90 ngày không?
-- Có hiệu ứng nhỏ khi xong hết việc hôm nay không?
+- Có tự dọn việc đã xong sau 30 hay 90 ngày không? → **Đã chốt:** Không tự dọn ở MVP; người dùng xoá hàng loạt thủ công.
+- Có hiệu ứng nhỏ khi xong hết việc hôm nay không? → **Đã chốt:** Có màn chúc mừng "Bạn đã xong hết việc hôm nay!" (SRS TN03 MSG-16).
 - Hoàn thành việc quá hạn có ghi nhận là "xong trễ" không? → **Đã chốt:** Có. Việc xong sau hạn được gắn nhãn "Xong trễ" ở tab Đã xong (SRS BR-14).
-- Có cần đánh dấu xong hàng loạt ở phase sau không?
+- Có cần đánh dấu xong hàng loạt ở phase sau không? → **Đã chốt:** Để phase sau, ngoài phạm vi MVP.
