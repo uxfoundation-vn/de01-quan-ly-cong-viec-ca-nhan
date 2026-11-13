@@ -31,7 +31,7 @@
 | --- | --- |
 | BR-12 | Đánh dấu xong bằng: ô tròn trên dòng việc, vuốt phải quá **40%** chiều rộng dòng, hoặc ô tròn ở **SCR-03** `[giả định]` |
 | BR-13 | Sau khi tích: ô tròn đầy, tiêu đề gạch ngang, rung nhẹ; việc ở lại danh sách **1 giây** rồi mới rời. Tích lại trong 1 giây này → huỷ, không ghi gì `[giả định]` |
-| BR-14 | Việc rời danh sách → lưu `DA_XONG`, ghi completed_at, hiện snackbar MSG-10 với Hoàn tác **5 giây** |
+| BR-14 | Việc rời danh sách → lưu `DA_XONG`, ghi completed_at, hiện snackbar MSG-10 với Hoàn tác **5 giây**. Việc có hạn mà completed_at > hạn → ghi `completed_late = true` (**xong trễ**); mở lại thì xoá cờ này |
 | BR-15 | Hoàn tác hoặc mở lại → `CHUA_XONG`, xoá completed_at; giữ nguyên hạn, ưu tiên, nhãn. Hạn đã qua → hiện như `QUA_HAN` |
 | BR-16 | Tab Đã xong sắp xếp theo completed_at giảm dần, nhóm theo ngày: Hôm nay, Hôm qua, {thứ, dd/mm} |
 | BR-17 | "Xoá tất cả việc đã xong" xoá mọi việc `DA_XONG`; phải xác nhận (MSG-12), sau đó có Hoàn tác 5 giây (MSG-13) |
@@ -217,14 +217,14 @@ flowchart TD
 | --- | --- | --- | --- |
 | 1 | Header | Header | "Đã xong" + menu ⋯ ("Xoá tất cả việc đã xong") |
 | 2 | Tiêu đề nhóm | Section header | Hôm nay / Hôm qua / {thứ, dd/mm} + số việc |
-| 3 | Dòng việc đã xong | List item | Ô tròn đầy, tiêu đề gạch ngang màu phụ, "Xong lúc {giờ}"; bỏ tích → UC-06 |
+| 3 | Dòng việc đã xong | List item | Ô tròn đầy, tiêu đề gạch ngang màu phụ, "Xong lúc {giờ}"; việc xong trễ có thêm nhãn "Xong trễ" (BR-14); bỏ tích → UC-06 |
 | 4 | Màn trống | Empty state | MSG-14 |
 
 ## 8. Dữ liệu và thao tác
 
 | **Thao tác** | **Input chính** | **Output chính** | **Ghi chú** |
 | --- | --- | --- | --- |
-| \[TaskComplete\] | task_id | status = DONE, completed_at | Gọi sau 1 giây (BR-13) |
+| \[TaskComplete\] | task_id | status = DONE, completed_at, completed_late | Gọi sau 1 giây (BR-13) |
 | \[TaskReopen\] | task_id | status = OPEN, completed_at = rỗng | Hoàn tác hoặc mở lại (BR-15) |
 | \[TaskListCompleted\] | – | Danh sách nhóm theo ngày | BR-16, tải dần 50 việc mỗi lần `[giả định]` |
 | \[TaskDeleteCompleted\] | – | Số việc đã xoá | Chỉ gọi khi hết thời gian hoàn tác (BR-17) |

@@ -29,6 +29,7 @@ flowchart LR
     S04["SCR-04 Chọn hạn"]
     S05["SCR-05 Chọn nhãn"]
     S06["SCR-06 Quản lý nhãn"]
+    S10["SCR-10 Bản nháp lưu trữ"]
   end
   subgraph TN02["TN02 · Hoàn thành & mở lại"]
     S07["SCR-07 Đã xong"]
@@ -43,6 +44,8 @@ flowchart LR
   S03 --> S04
   S03 --> S05
   S01 -->|Cài đặt| S06
+  S01 -->|Cài đặt| S10
+  S10 -->|Khôi phục| S02
   S01 -->|Tab Đã xong| S07
   S09 -->|Chạm kết quả| S03
   S07 -->|Chạm việc| S03
@@ -62,7 +65,7 @@ Ngoài phạm vi cả đề: tài khoản và đồng bộ, chia sẻ việc, vi
 
 ## Quy ước dùng chung
 
-- Mã BR và MSG đánh số liên tục trong cả đề để tham chiếu chéo không trùng: TN01 dùng BR-01–11, MSG-01–09; TN02 dùng BR-12–18, MSG-10–14; TN03 dùng BR-19–27, MSG-15–20.
+- Mã BR và MSG đánh số liên tục trong cả đề để tham chiếu chéo không trùng: TN01 dùng BR-01–11, MSG-01–09; TN02 dùng BR-12–18, MSG-10–14; TN03 dùng BR-19–27, MSG-15–20. Mã bổ sung sau đánh tiếp từ số cuối: BR-28, MSG-21 (bản nháp lưu trữ) ở SRS TN01; BR-29 (thu gọn nhóm Quá hạn) ở SRS TN03.
 - Trạng thái việc (`CHUA_XONG`, `QUA_HAN`, `DA_XONG`, `DANG_XOA`) định nghĩa ở [SRS TN01](docs/TN01-quan-ly-task/SRS.md), mục 4.1.
 - Điều hướng: tab bar Hôm nay · Sắp tới · Tất cả · Đã xong; header có nút Tìm kiếm, Lọc, Cài đặt.
 - Giá trị đánh dấu `[giả định]` dùng để dựng flow, cần PO hoặc BA xác nhận trước khi dùng.
@@ -80,6 +83,7 @@ Ngoài phạm vi cả đề: tài khoản và đồng bộ, chia sẻ việc, vi
 | SCR-07 | Đã xong | SRS TN02 |
 | SCR-08 | Bộ lọc & sắp xếp | SRS TN03 |
 | SCR-09 | Tìm kiếm | SRS TN03 |
+| SCR-10 | Bản nháp lưu trữ | SRS TN01 |
 
 ## Cấu trúc repo
 

@@ -184,5 +184,5 @@ AC03: Xoá một việc đã xong bằng vuốt trái như ở [TN01](../TN01-qu
 
 - Có tự dọn việc đã xong sau 30 hay 90 ngày không?
 - Có hiệu ứng nhỏ khi xong hết việc hôm nay không?
-- Hoàn thành việc quá hạn có ghi nhận là "xong trễ" không?
+- Hoàn thành việc quá hạn có ghi nhận là "xong trễ" không? → **Đã chốt:** Có. Việc xong sau hạn được gắn nhãn "Xong trễ" ở tab Đã xong (SRS BR-14).
 - Có cần đánh dấu xong hàng loạt ở phase sau không?
