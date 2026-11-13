@@ -1,8 +1,8 @@
-> **Mã:** DE01-TN03-SRS · **Trạng thái:** nháp · **Người viết:** Design (mock) · **PRD:** [PRD.md](PRD.md)
+> **Mã:** DE01-TN03-SRS · **Trạng thái:** đã chốt · **Người viết:** Design · **PRD:** [PRD.md](PRD.md)
 
 # UC-DE01-03 - Xem, lọc và tìm kiếm việc
 
-> **Bản mock.** Giá trị `[giả định]` cần BA xác nhận. Dòng việc (task row) và thao tác hoàn thành xem [SRS TN02](../TN02-hoan-thanh-mo-lai/SRS.md); tạo, sửa, xoá xem [SRS TN01](../TN01-quan-ly-task/SRS.md).
+> Dòng việc (task row) và thao tác hoàn thành xem [SRS TN02](../TN02-hoan-thanh-mo-lai/SRS.md); tạo, sửa, xoá xem [SRS TN01](../TN01-quan-ly-task/SRS.md).
 
 ## 1. Tổng quan
 
@@ -12,7 +12,7 @@
 | Actor | Người dùng · Hệ thống (app và bộ nhớ trên thiết bị) |
 | Phạm vi | Danh sách Hôm nay, Sắp tới, Tất cả; lọc; sắp xếp; tìm kiếm; các màn trống |
 | Ngoài phạm vi | Xem dạng lịch, Kanban, kéo thả sắp xếp, lưu bộ lọc, lịch sử tìm kiếm |
-| Nền tảng | App iOS / Android `[giả định]` |
+| Nền tảng | App iOS / Android |
 
 ## 2. User Story
 
@@ -29,13 +29,13 @@
 | **Mã** | **Quy tắc** |
 | --- | --- |
 | BR-19 | **Hôm nay** = việc `CHUA_XONG` có hạn ≤ cuối ngày hôm nay. Nhóm: Quá hạn (hạn < hiện tại), Hôm nay |
-| BR-29 | **Thu gọn nhóm Quá hạn** ở Hôm nay và Tất cả: chạm tiêu đề nhóm để thu gọn, mở rộng. Mặc định mở khi nhóm có ≤ 5 việc, thu gọn khi > 5 `[giả định]`; người dùng đã chạm thì nhớ lựa chọn cho tab đó. Khi thu gọn, tiêu đề vẫn hiện số việc quá hạn |
-| BR-20 | **Sắp tới** = việc `CHUA_XONG` có hạn từ ngày mai. Nhóm theo từng ngày trong 7 ngày, còn lại vào "Sau này" `[giả định]` |
+| BR-29 | **Thu gọn nhóm Quá hạn** ở Hôm nay và Tất cả: chạm tiêu đề nhóm để thu gọn, mở rộng. Mặc định mở khi nhóm có ≤ 5 việc, thu gọn khi > 5; người dùng đã chạm thì nhớ lựa chọn cho tab đó. Khi thu gọn, tiêu đề vẫn hiện số việc quá hạn |
+| BR-20 | **Sắp tới** = việc `CHUA_XONG` có hạn từ ngày mai. Nhóm theo từng ngày trong 7 ngày, còn lại vào "Sau này" |
 | BR-21 | **Tất cả** = mọi việc `CHUA_XONG`. Nhóm: Quá hạn, Có hạn, Không có hạn |
 | BR-22 | **Sắp xếp mặc định** (Theo hạn): hạn tăng dần → ưu tiên Cao trước → tạo trước. Việc có giờ đứng trước việc không có giờ trong cùng ngày |
 | BR-23 | Sắp xếp khác: Theo ưu tiên (Cao → Không, rồi theo hạn), Mới tạo trước. Khi dùng, bỏ nhóm theo ngày, giữ nhóm Quá hạn |
 | BR-24 | **Lọc**: nhiều nhãn là HOẶC, nhiều mức ưu tiên là HOẶC, giữa nhãn và ưu tiên là VÀ. Bộ lọc và cách sắp xếp nhớ riêng từng danh sách |
-| BR-25 | **Tìm kiếm** trong tiêu đề, ghi chú, tên nhãn; bỏ dấu và hoa thường ở cả hai phía; chạy sau 300 ms kể từ lần gõ cuối; từ khoá tối thiểu 1 ký tự `[giả định]` |
+| BR-25 | **Tìm kiếm** trong tiêu đề, ghi chú, tên nhãn; bỏ dấu và hoa thường ở cả hai phía; chạy sau 300 ms kể từ lần gõ cuối; từ khoá tối thiểu 1 ký tự |
 | BR-26 | Kết quả tìm: nhóm "Chưa xong" trước, "Đã xong" sau; trong nhóm sắp theo BR-22. Không áp dụng bộ lọc của danh sách; **SCR-09** có bộ lọc riêng: Trạng thái (Tất cả, Chưa xong, Đã xong), Nhãn, Ưu tiên, kết hợp như BR-24. Bộ lọc tìm kiếm không được nhớ khi đóng **SCR-09** |
 | BR-27 | Danh sách tính lại khi: qua 00:00, app trở lại nền trước, có thay đổi dữ liệu. Badge Hôm nay = số việc theo BR-19, tối đa "99+" |
 
@@ -215,7 +215,7 @@ flowchart TD
 
 | **Điểm vào** | **Dẫn tới** | **Ghi chú** |
 | --- | --- | --- |
-| Mở app | UC-08, tab Hôm nay | Luôn vào Hôm nay, không nhớ tab lần trước `[giả định]` |
+| Mở app | UC-08, tab Hôm nay | Luôn vào Hôm nay, không nhớ tab lần trước |
 | Tab bar | UC-08 | Hôm nay · Sắp tới · Tất cả · Đã xong (TN02) |
 | Nút Lọc ở header | UC-09, **SCR-08** | Có chấm báo khi đang lọc |
 | Nút Tìm kiếm ở header | UC-10, **SCR-09** | |
@@ -301,7 +301,7 @@ sequenceDiagram
 
 ## 10. Yêu cầu phi chức năng
 
-| **Mục** | **Yêu cầu** `[giả định]` |
+| **Mục** | **Yêu cầu** |
 | --- | --- |
 | Hiệu năng | Mở app đến khi hiện danh sách ≤ 1 giây (p95) với 2.000 việc; kết quả tìm ≤ 300 ms sau thời gian chờ; cuộn 60 khung hình/giây |
 | Offline | Toàn bộ chức năng chạy không cần mạng |

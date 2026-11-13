@@ -1,6 +1,6 @@
 # Đề 1 · Quản lý công việc cá nhân
 
-> **Mã:** DE01 · **Độ khó:** 1/8 · **Vai trò:** 1 (người dùng) · **Nền tảng:** App iOS / Android `[giả định]`
+> **Mã:** DE01 · **Độ khó:** 1/8 · **Vai trò:** 1 (người dùng) · **Nền tảng:** App iOS / Android
 
 App giúp một người ghi lại và hoàn thành việc cần làm hằng ngày. Dữ liệu lưu trên máy, không cần tài khoản, dùng offline. Đề gồm 3 tính năng; mỗi tính năng có 1 PRD và 1 SRS riêng.
 
@@ -68,7 +68,6 @@ Ngoài phạm vi cả đề: tài khoản và đồng bộ, chia sẻ việc, vi
 - Mã BR và MSG đánh số liên tục trong cả đề để tham chiếu chéo không trùng: TN01 dùng BR-01–11, MSG-01–09; TN02 dùng BR-12–18, MSG-10–14; TN03 dùng BR-19–27, MSG-15–20. Mã bổ sung sau đánh tiếp từ số cuối: BR-28, MSG-21 (bản nháp lưu trữ) ở SRS TN01; BR-29 (thu gọn nhóm Quá hạn) ở SRS TN03.
 - Trạng thái việc (`CHUA_XONG`, `QUA_HAN`, `DA_XONG`, `DANG_XOA`) định nghĩa ở [SRS TN01](docs/TN01-quan-ly-task/SRS.md), mục 4.1.
 - Điều hướng: tab bar Hôm nay · Sắp tới · Tất cả · Đã xong; header có nút Tìm kiếm, Lọc, Cài đặt.
-- Giá trị đánh dấu `[giả định]` dùng để dựng flow, cần PO hoặc BA xác nhận trước khi dùng.
 
 ## Danh sách màn hình
 

@@ -1,8 +1,6 @@
-> **Mã:** DE01-TN03-PRD · **Trạng thái:** nháp · **Người viết:** Design (mock) · **SRS:** [SRS.md](SRS.md)
+> **Mã:** DE01-TN03-PRD · **Trạng thái:** đã chốt · **Người viết:** Design · **SRS:** [SRS.md](SRS.md)
 
 # PRD Xem, lọc và tìm kiếm việc (App quản lý công việc cá nhân)
-
-> **Bản mock.** Con số đánh dấu `[giả định]` dùng để dựng flow, cần PO xác nhận trước khi dùng.
 
 ## 1. Bối cảnh và vấn đề
 
@@ -22,8 +20,8 @@ Người dùng đã ghi được việc ([TN01](../TN01-quan-ly-task/PRD.md)) v�
 
 ### 1.3 Mục tiêu
 
-- Mở app ≤ 1 giây là thấy việc hôm nay và việc quá hạn `[giả định]`.
-- Tìm thấy một việc bất kỳ trong ≤ 10 giây `[giả định]`.
+- Mở app ≤ 1 giây là thấy việc hôm nay và việc quá hạn.
+- Tìm thấy một việc bất kỳ trong ≤ 10 giây.
 - Người dùng mới tạo được việc đầu tiên từ màn trống.
 
 ## 2. Người dùng
@@ -71,7 +69,7 @@ Mỗi màn trống nói rõ vì sao trống và đưa ra đúng một hành đ�
 
 ## 5. Quy tắc nghiệp vụ
 
-| **Quy tắc** | **Giá trị** `[giả định]` |
+| **Quy tắc** | **Giá trị** |
 | --- | --- |
 | Hôm nay | Việc chưa xong có hạn hôm nay hoặc đã quá hạn |
 | Sắp tới | Việc chưa xong có hạn từ ngày mai; nhóm theo ngày trong 7 ngày, sau đó là "Sau này" |
@@ -168,7 +166,7 @@ AC03: Từ khoá khớp được tô đậm trong kết quả.
 
 AC04: Không có kết quả → nói rõ không tìm thấy, gợi ý kiểm tra từ khoá.
 
-## 8. Chỉ số theo dõi `[giả định]`
+## 8. Chỉ số theo dõi
 
 | **Chỉ số** | **Định nghĩa** | **Mục tiêu MVP** |
 | --- | --- | --- |
