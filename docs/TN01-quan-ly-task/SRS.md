@@ -35,10 +35,11 @@ Mã BR đánh số liên tục trong cả đề 1 (SRS TN02 tiếp từ BR-12, S
 | BR-02 | **Ghi chú** tối đa 2.000 ký tự; đủ giới hạn → không nhập thêm được, bộ đếm chuyển đỏ `[giả định]` |
 | BR-03 | **Hạn** gồm ngày (bắt buộc khi đặt hạn) và giờ (tuỳ chọn). Không có giờ → hạn tính đến 23:59 ngày đó. Cho chọn ngày đã qua; việc tạo ra sẽ ở trạng thái quá hạn |
 | BR-04 | **Ưu tiên**: Cao, Trung bình, Thấp, Không; mặc định Không |
-| BR-05 | **Nhãn**: tối đa 3 nhãn mỗi việc, 20 nhãn trong app; tên 1–20 ký tự, không trùng (không phân biệt hoa thường) `[giả định]` |
-| BR-06 | **Giá trị mặc định khi tạo** theo danh sách đang mở: Hôm nay → hạn hôm nay; Sắp tới → hạn ngày mai; Tất cả → không hạn; đang lọc theo nhãn → gán sẵn nhãn đó `[giả định]` |
-| BR-07 | Sửa ở màn chi tiết **tự lưu** 500 ms sau lần gõ cuối hoặc khi rời trường `[giả định]`; không có nút Lưu |
-| BR-08 | Tiêu đề bị xoá rỗng khi rời màn chi tiết → khôi phục tiêu đề trước đó, hiện MSG-02 |
+| BR-05 | **Nhãn**: tối đa 3 nhãn mỗi việc, 20 nhãn trong app; tên 1–20 ký tự, không trùng (không phân biệt hoa thường) `[giả định]`. Mỗi nhãn có **1 màu** chọn từ bảng 12 màu; nhãn mới tự nhận màu kế tiếp chưa dùng, đổi được ở **SCR-06**. Chip nhãn luôn hiện cả tên, không chỉ dựa vào màu |
+| BR-28 | **Bản nháp ô nhập** (UC-01 A4) tự điền lại khi mở **SCR-02** trong **12 giờ** kể từ lần sửa cuối. Quá 12 giờ → bản nháp chuyển vào **Bản nháp lưu trữ** (Cài đặt → Bản nháp), không tự điền nữa. Ở đó người dùng chạm để khôi phục vào ô nhập hoặc xoá; giữ tối đa 20 bản, bản cũ nhất bị xoá khi vượt `[giả định]`. Mở **SCR-02** khi đang có bản nháp còn hạn thì bản nháp còn hạn được ưu tiên |
+| BR-06 | **Giá trị mặc định khi tạo** theo danh sách đang mở: Hôm nay → hạn hôm nay; Sắp tới → hạn ngày mai; Tất cả → không hạn; đang lọc theo **đúng một** nhãn → gán sẵn nhãn đó; đang lọc từ 2 nhãn trở lên → không gán sẵn nhãn nào, vì bộ lọc nhiều nhãn là HOẶC (BR-24) và mỗi việc tối đa 3 nhãn (BR-05) `[giả định]` |
+| BR-07 | Sửa ở màn chi tiết **tự lưu** 500 ms sau lần gõ cuối hoặc khi rời trường `[giả định]`; không có nút Lưu. Việc mở từ "Mở rộng" khi chưa có tiêu đề hợp lệ thì **chưa được tạo**: lần tự lưu đầu tiên có tiêu đề hợp lệ (BR-01) mới tạo việc, trước đó không ghi gì vào danh sách |
+| BR-08 | Tiêu đề bị xoá rỗng khi rời màn chi tiết: việc **đã tạo** → khôi phục tiêu đề hợp lệ gần nhất, hiện MSG-02; việc **chưa tạo** (mở từ "Mở rộng", chưa từng có tiêu đề hợp lệ) → không tạo việc, không hiện MSG-02, phần đã nhập được giữ thành bản nháp của **SCR-02** (UC-01 A4) |
 | BR-09 | **Xoá việc**: ẩn ngay, Hoàn tác trong 5 giây. Xoá vĩnh viễn khi hết 5 giây, khi có thao tác xoá khác, hoặc khi app chuyển xuống nền `[giả định]` |
 | BR-10 | **Xoá nhãn**: gỡ nhãn khỏi mọi việc, không xoá việc; phải xác nhận (MSG-06) |
 | BR-11 | Mọi mốc giờ theo múi giờ thiết bị; mỗi việc lưu thời điểm tạo và sửa gần nhất |
@@ -81,7 +82,8 @@ stateDiagram-v2
   DANG_NHAP --> DANG_NHAP : Lưu, ô nhập trống để ghi tiếp
   DANG_NHAP --> DONG_CO_NHAP : Đóng khi còn chữ
   DANG_NHAP --> DONG : Đóng khi trống
-  DONG_CO_NHAP --> DANG_NHAP : Mở lại, điền bản nháp
+  DONG_CO_NHAP --> DANG_NHAP : Mở lại trong 12 giờ, điền bản nháp
+  DONG_CO_NHAP --> DONG : Quá 12 giờ, bản nháp vào lưu trữ, BR-28
 ```
 
 ## 5. Use Case
@@ -131,8 +133,8 @@ flowchart TD
 | A1 | Việc mới không thuộc danh sách đang mở | Bước 6 lưu bình thường, hiện MSG-03 kèm nút "Xem" mở danh sách chứa việc |
 | A2 | Chạm biểu tượng Hạn | Mở **SCR-04**; chọn xong quay lại bước 3, bàn phím bật lại |
 | A3 | Chạm biểu tượng Nhãn, gõ tên chưa có | **SCR-05** hiện dòng "Tạo nhãn '{tên}'"; chạm → tạo và gán luôn |
-| A4 | Đóng **SCR-02** khi đã gõ chữ | Giữ bản nháp; lần mở sau điền lại, kèm nhãn "Bản nháp" |
-| A5 | Chạm "Mở rộng" | Sang **SCR-03** với dữ liệu đã nhập; việc chỉ được tạo khi tiêu đề hợp lệ |
+| A4 | Đóng **SCR-02** khi đã gõ chữ | Giữ bản nháp; mở lại trong 12 giờ thì điền lại, kèm nhãn "Bản nháp"; quá 12 giờ thì bản nháp chuyển vào Bản nháp lưu trữ (BR-28, **SCR-10**) |
+| A5 | Chạm "Mở rộng" | Sang **SCR-03** với dữ liệu đã nhập. Tiêu đề đang hợp lệ → tạo việc ngay lúc chuyển màn, từ đó sửa theo UC-02. Tiêu đề còn trống → việc chưa được tạo; việc được tạo ở lần tự lưu đầu tiên có tiêu đề hợp lệ (BR-07). Rời **SCR-03** khi tiêu đề vẫn trống → không tạo việc, giữ phần đã nhập thành bản nháp như A4 (BR-08) |
 
 **Luồng lỗi**
 
@@ -283,6 +285,7 @@ flowchart TD
 | Vuốt trái trên dòng việc | UC-03 | |
 | Menu ⋯ ở **SCR-03** | UC-03 | |
 | Cài đặt → Nhãn | UC-04, **SCR-06** | |
+| Cài đặt → Bản nháp | **SCR-10** | BR-28 |
 
 ## 7. Mô tả màn hình
 
@@ -294,7 +297,7 @@ flowchart TD
 | 2 | Hạn | Icon lịch + chip | Không | Mở **SCR-04**; đã chọn → chip "Hôm nay 17:00" có ✕ |
 | 3 | Ưu tiên | Icon cờ | Không | Menu 4 mức (BR-04); đã chọn → cờ đổi theo mức, kèm chữ |
 | 4 | Nhãn | Icon thẻ + chip | Không | Mở **SCR-05**; chip nhãn đã gán, có ✕ |
-| 5 | Mở rộng | Icon | – | Sang **SCR-03**, mang theo dữ liệu đã nhập |
+| 5 | Mở rộng | Icon | – | Sang **SCR-03**, mang theo dữ liệu đã nhập; thời điểm tạo việc theo UC-01 A5 |
 | 6 | Nhãn "Bản nháp" | Text phụ | – | Chỉ hiện khi đang điền lại bản nháp |
 | 7 | Nút Lưu | Button | – | Disabled đến khi BR-01 hợp lệ |
 
@@ -302,13 +305,13 @@ flowchart TD
 
 | **#** | **Thành phần** | **Loại** | **Bắt buộc** | **Validate / hành vi** |
 | --- | --- | --- | --- | --- |
-| 1 | Ô tròn hoàn thành | Checkbox | – | Hành vi ở SRS TN02 |
+| 1 | Ô tròn hoàn thành | Checkbox | – | Hành vi ở SRS TN02; disabled khi việc chưa được tạo (UC-01 A5) |
 | 2 | Tiêu đề | Text nhiều dòng | Có | BR-01, BR-07, BR-08 |
 | 3 | Ghi chú | Text nhiều dòng | Không | BR-02; placeholder "Thêm ghi chú" |
 | 4 | Hạn | Dòng chọn | Không | Mở **SCR-04**; trống → "Thêm hạn" |
 | 5 | Ưu tiên | Dòng chọn | Không | 4 mức |
 | 6 | Nhãn | Dòng chip | Không | Mở **SCR-05** |
-| 7 | Thông tin | Text phụ | – | "Tạo lúc {ngày giờ} · Sửa lúc {ngày giờ}" |
+| 7 | Thông tin | Text phụ | – | "Tạo lúc {ngày giờ} · Sửa lúc {ngày giờ}"; ẩn khi việc chưa được tạo (UC-01 A5) |
 | 8 | Menu ⋯ | Menu | – | Xoá (UC-03) |
 
 ### SCR-04 Chọn hạn (bottom sheet)
@@ -337,6 +340,16 @@ flowchart TD
 | 2 | Đổi tên | Inline edit | BR-05; trùng → MSG-09 |
 | 3 | Xoá | Icon | MSG-06 xác nhận |
 | 4 | Màn trống | Empty state | "Chưa có nhãn. Nhãn được tạo khi bạn gán cho việc" |
+| 5 | Màu nhãn | Bảng 12 màu | Chạm chấm màu đầu dòng để đổi (BR-05) |
+
+### SCR-10 Bản nháp lưu trữ
+
+| **#** | **Thành phần** | **Loại** | **Hành vi** |
+| --- | --- | --- | --- |
+| 1 | Danh sách bản nháp | List | Tiêu đề (hoặc "Không có tiêu đề"), các chip đã chọn, "Lưu lúc {ngày giờ}"; mới nhất trước (BR-28) |
+| 2 | Khôi phục | Chạm dòng | Mở **SCR-02** điền bản nháp; bản nháp rời khỏi lưu trữ. Ô nhập đang có bản nháp khác → MSG-21 hỏi thay thế |
+| 3 | Xoá | Vuốt trái | Xoá ngay, có Hoàn tác 5 giây |
+| 4 | Màn trống | Empty state | "Không có bản nháp nào" |
 
 ### Snackbar hoàn tác (dùng chung cả app)
 
@@ -348,11 +361,11 @@ App lưu dữ liệu trên thiết bị, không gọi API. Bảng dưới mô t�
 
 | **Thao tác** | **Input chính** | **Output chính** | **Ghi chú** |
 | --- | --- | --- | --- |
-| \[TaskCreate\] | title, note, due_date, due_time, priority, label_ids | task_id, created_at | Kiểm tra BR-01–05 |
+| \[TaskCreate\] | title, note, due_date, due_time, priority, label_ids | task_id, created_at | Kiểm tra BR-01–05; gọi khi Lưu ở **SCR-02**, hoặc theo UC-01 A5 khi đi qua "Mở rộng" |
 | \[TaskUpdate\] | task_id, các trường thay đổi | updated_at | Gọi theo BR-07 |
 | \[TaskDelete\] | task_id | – | Chỉ gọi khi hết thời gian hoàn tác (BR-09) |
-| \[LabelCreate\] | name | label_id | BR-05 |
-| \[LabelUpdate\] | label_id, name | – | BR-05 |
+| \[LabelCreate\] | name, color (tuỳ chọn) | label_id, color | BR-05 |
+| \[LabelUpdate\] | label_id, name, color | – | BR-05 |
 | \[LabelDelete\] | label_id | Số việc bị gỡ nhãn | BR-10 |
 
 ```mermaid
@@ -374,9 +387,9 @@ sequenceDiagram
 
 | **Đối tượng** | **Trường** |
 | --- | --- |
-| Task | id, title, note, due_date (có thể rỗng), due_time (có thể rỗng), priority (NONE, LOW, MEDIUM, HIGH), label_ids (≤ 3), status (OPEN, DONE), completed_at, created_at, updated_at |
-| Label | id, name, created_at |
-| Draft | title, due_date, due_time, priority, label_ids (bản nháp ô nhập, tối đa 1) |
+| Task | id, title, note, due_date (có thể rỗng), due_time (có thể rỗng), priority (NONE, LOW, MEDIUM, HIGH), label_ids (≤ 3), status (OPEN, DONE), completed_at, completed_late, created_at, updated_at |
+| Label | id, name, color, created_at |
+| Draft | title, note, due_date, due_time, priority, label_ids, updated_at, archived (bản nháp ô nhập: tối đa 1 bản chưa lưu trữ, tối đa 20 bản lưu trữ theo BR-28; `note` chỉ có khi bản nháp đến từ **SCR-03**, xem UC-01 A5) |
 
 ## 9. Danh sách thông báo
 
@@ -391,6 +404,7 @@ sequenceDiagram
 | MSG-07 | Popup | Không lưu được vì bộ nhớ thiết bị đã đầy. Vui lòng giải phóng dung lượng rồi thử lại |
 | MSG-08 | Snackbar | Đã xoá "{tiêu đề, rút gọn 30 ký tự}" · Hoàn tác |
 | MSG-09 | Inline | Nhãn này đã có |
+| MSG-21 | Popup | Ô nhập đang có bản nháp khác. Thay bằng bản nháp này? Bản nháp hiện tại sẽ được chuyển vào lưu trữ. \[Huỷ\] \[Thay thế\] |
 
 Bản EN: `[chờ bổ sung]`.
 

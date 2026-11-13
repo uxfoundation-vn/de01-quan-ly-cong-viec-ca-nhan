@@ -30,13 +30,14 @@
 | **Mã** | **Quy tắc** |
 | --- | --- |
 | BR-19 | **Hôm nay** = việc `CHUA_XONG` có hạn ≤ cuối ngày hôm nay. Nhóm: Quá hạn (hạn < hiện tại), Hôm nay |
+| BR-29 | **Thu gọn nhóm Quá hạn** ở Hôm nay và Tất cả: chạm tiêu đề nhóm để thu gọn, mở rộng. Mặc định mở khi nhóm có ≤ 5 việc, thu gọn khi > 5 `[giả định]`; người dùng đã chạm thì nhớ lựa chọn cho tab đó. Khi thu gọn, tiêu đề vẫn hiện số việc quá hạn |
 | BR-20 | **Sắp tới** = việc `CHUA_XONG` có hạn từ ngày mai. Nhóm theo từng ngày trong 7 ngày, còn lại vào "Sau này" `[giả định]` |
 | BR-21 | **Tất cả** = mọi việc `CHUA_XONG`. Nhóm: Quá hạn, Có hạn, Không có hạn |
 | BR-22 | **Sắp xếp mặc định** (Theo hạn): hạn tăng dần → ưu tiên Cao trước → tạo trước. Việc có giờ đứng trước việc không có giờ trong cùng ngày |
 | BR-23 | Sắp xếp khác: Theo ưu tiên (Cao → Không, rồi theo hạn), Mới tạo trước. Khi dùng, bỏ nhóm theo ngày, giữ nhóm Quá hạn |
 | BR-24 | **Lọc**: nhiều nhãn là HOẶC, nhiều mức ưu tiên là HOẶC, giữa nhãn và ưu tiên là VÀ. Bộ lọc và cách sắp xếp nhớ riêng từng danh sách |
 | BR-25 | **Tìm kiếm** trong tiêu đề, ghi chú, tên nhãn; bỏ dấu và hoa thường ở cả hai phía; chạy sau 300 ms kể từ lần gõ cuối; từ khoá tối thiểu 1 ký tự `[giả định]` |
-| BR-26 | Kết quả tìm: nhóm "Chưa xong" trước, "Đã xong" sau; trong nhóm sắp theo BR-22; không áp dụng bộ lọc của danh sách |
+| BR-26 | Kết quả tìm: nhóm "Chưa xong" trước, "Đã xong" sau; trong nhóm sắp theo BR-22. Không áp dụng bộ lọc của danh sách; **SCR-09** có bộ lọc riêng: Trạng thái (Tất cả, Chưa xong, Đã xong), Nhãn, Ưu tiên, kết hợp như BR-24. Bộ lọc tìm kiếm không được nhớ khi đóng **SCR-09** |
 | BR-27 | Danh sách tính lại khi: qua 00:00, app trở lại nền trước, có thay đổi dữ liệu. Badge Hôm nay = số việc theo BR-19, tối đa "99+" |
 
 ## 4. Trạng thái
@@ -163,7 +164,7 @@ flowchart TD
 | A1 | Bấm ✕ trên một chip | Bỏ giá trị đó, lọc lại ngay |
 | A2 | Bấm "Xoá lọc" | Bỏ mọi bộ lọc; cách sắp xếp giữ nguyên |
 | A3 | Không việc nào khớp | `LOC_KHONG_CO`: MSG-19 |
-| A4 | Tạo việc khi đang lọc theo nhãn | Việc mới gán sẵn nhãn đó (BR-06) |
+| A4 | Tạo việc khi đang lọc theo nhãn | Đang lọc đúng một nhãn → việc mới gán sẵn nhãn đó; đang lọc từ 2 nhãn → không gán sẵn nhãn nào (BR-06) |
 | A5 | Chưa có nhãn nào | Mục Nhãn trong **SCR-08** hiện "Chưa có nhãn" |
 
 ### UC-10 Tìm kiếm
@@ -229,7 +230,7 @@ flowchart TD
 | --- | --- | --- | --- |
 | 1 | Header | Header | Tên tab + ngày hôm nay (ở Hôm nay); nút Tìm kiếm, Lọc, Cài đặt |
 | 2 | Thanh chip bộ lọc | Chips | Chỉ hiện khi `DANG_LOC` hoặc `LOC_KHONG_CO`; mỗi chip có ✕; cuối thanh là "Xoá lọc" |
-| 3 | Tiêu đề nhóm | Section header | Tên nhóm + số việc; nhóm Quá hạn chữ đỏ kèm biểu tượng |
+| 3 | Tiêu đề nhóm | Section header | Tên nhóm + số việc; nhóm Quá hạn chữ đỏ kèm biểu tượng và mũi tên thu gọn, mở rộng (BR-29) |
 | 4 | Dòng việc | List item | Thành phần dùng chung, mô tả ở SRS TN02 |
 | 5 | Nút "+" | FAB | Mở **SCR-02** (SRS TN01); luôn nổi trên danh sách |
 | 6 | Màn trống | Empty state | Theo trạng thái mục 4.1 |
@@ -251,6 +252,7 @@ flowchart TD
 | --- | --- | --- | --- |
 | 1 | Ô tìm kiếm | Text | Placeholder "Tìm việc, ghi chú, nhãn"; nút ✕ xoá từ khoá; nút Huỷ đóng màn |
 | 2 | Gợi ý ban đầu | Text phụ | "Gõ để tìm trong tất cả việc, kể cả việc đã xong" |
+| 2b | Lọc kèm | Chips | Trạng thái, Nhãn, Ưu tiên ngay dưới ô tìm (BR-26); có "Xoá lọc" |
 | 3 | Nhóm "Chưa xong" | Section + list | Dòng việc dùng chung; tô đậm phần khớp |
 | 4 | Nhóm "Đã xong" | Section + list | Dòng việc đã xong (SRS TN02) |
 | 5 | Không có kết quả | Empty state | MSG-20 |
@@ -261,7 +263,7 @@ flowchart TD
 | --- | --- | --- | --- |
 | \[TaskList\] | view (TODAY, UPCOMING, ALL), filter, sort | Việc theo nhóm, số việc mỗi nhóm | BR-19–24 |
 | \[TaskCount\] | view, filter | Số việc khớp | Dùng cho badge và nút "Xem {n} việc" |
-| \[TaskSearch\] | keyword | Việc khớp, vị trí khớp | BR-25, BR-26 |
+| \[TaskSearch\] | keyword, status, label_ids, priorities | Việc khớp, vị trí khớp | BR-25, BR-26 |
 | \[ViewPrefSave\] | view, filter, sort | – | Nhớ bộ lọc theo tab (BR-24) |
 
 ```mermaid
