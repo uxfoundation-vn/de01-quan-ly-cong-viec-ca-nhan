@@ -163,7 +163,7 @@ flowchart TD
 | A1 | Bấm ✕ trên một chip | Bỏ giá trị đó, lọc lại ngay |
 | A2 | Bấm "Xoá lọc" | Bỏ mọi bộ lọc; cách sắp xếp giữ nguyên |
 | A3 | Không việc nào khớp | `LOC_KHONG_CO`: MSG-19 |
-| A4 | Tạo việc khi đang lọc theo nhãn | Việc mới gán sẵn nhãn đó (BR-06) |
+| A4 | Tạo việc khi đang lọc theo nhãn | Đang lọc đúng một nhãn → việc mới gán sẵn nhãn đó; đang lọc từ 2 nhãn → không gán sẵn nhãn nào (BR-06) |
 | A5 | Chưa có nhãn nào | Mục Nhãn trong **SCR-08** hiện "Chưa có nhãn" |
 
 ### UC-10 Tìm kiếm

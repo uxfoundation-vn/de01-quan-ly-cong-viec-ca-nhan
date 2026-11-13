@@ -191,6 +191,8 @@ AC04: Không có kết quả → nói rõ không tìm thấy, gợi ý kiểm tr
 
 ## 10. Câu hỏi mở
 
+> Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
+
 - Nhóm Quá hạn có thu gọn được không, có giới hạn số việc hiển thị không?
 - Sắp tới hiện 7 ngày hay 14 ngày?
 - Tìm kiếm có cần lọc kèm (nhãn, trạng thái) ở MVP không?

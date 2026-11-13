@@ -59,7 +59,7 @@ Chỉ tiêu đề là bắt buộc. Mọi chi tiết khác thêm lúc nào cũng
 
 ### 4.2 Mặc định theo ngữ cảnh
 
-Tạo từ đâu thì điền sẵn theo đó: từ Hôm nay thì hạn là hôm nay, đang lọc theo nhãn thì gán sẵn nhãn đó. Người dùng ít phải chọn hơn.
+Tạo từ đâu thì điền sẵn theo đó: từ Hôm nay thì hạn là hôm nay, đang lọc theo đúng một nhãn thì gán sẵn nhãn đó. Người dùng ít phải chọn hơn.
 
 ### 4.3 Không có nút Lưu ở màn chi tiết
 
@@ -78,7 +78,7 @@ Xoá một việc không hỏi "Bạn có chắc?" mà có Hoàn tác 5 giây. C
 | Hạn | Ngày, giờ tuỳ chọn; không có giờ → hạn đến 23:59; cho chọn ngày đã qua |
 | Ưu tiên | Cao, Trung bình, Thấp, Không; mặc định Không |
 | Nhãn | Tối đa 3 nhãn mỗi việc, 20 nhãn trong app; tên 1–20 ký tự, không trùng |
-| Mặc định khi tạo | Hôm nay → hạn hôm nay; Sắp tới → hạn ngày mai; Tất cả → không hạn; đang lọc nhãn → gán sẵn nhãn đó |
+| Mặc định khi tạo | Hôm nay → hạn hôm nay; Sắp tới → hạn ngày mai; Tất cả → không hạn; đang lọc đúng một nhãn → gán sẵn nhãn đó; đang lọc nhiều nhãn → không gán sẵn |
 | Tự lưu | 500 ms sau lần gõ cuối, hoặc khi rời trường |
 | Hoàn tác xoá | 5 giây |
 
@@ -140,7 +140,7 @@ AC02: Chọn hạn có lối tắt Hôm nay, Ngày mai, Cuối tuần, Tuần sa
 
 AC03: Gán nhãn chưa có → tạo luôn tại chỗ, không phải vào màn quản lý nhãn.
 
-AC04: "Mở rộng" chuyển sang màn chi tiết, mang theo mọi thứ đã nhập.
+AC04: "Mở rộng" chuyển sang màn chi tiết, mang theo mọi thứ đã nhập. Đã có tên việc hợp lệ → việc được tạo ngay; chưa có → việc chỉ được tạo khi người dùng nhập tên hợp lệ ở màn chi tiết, rời màn khi tên còn trống thì không tạo việc và phần đã nhập được giữ làm bản nháp.
 
 ### UC2. Sửa việc
 
@@ -204,6 +204,8 @@ AC03: Xoá nhãn chỉ gỡ nhãn khỏi các việc, không xoá việc; hỏi 
 | Hạn ở ngày đã qua | Người dùng chọn nhầm ngày cũ | Cho phép nhưng ghi chú "Việc sẽ hiện là quá hạn" khi chọn |
 
 ## 10. Câu hỏi mở
+
+> Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
 
 - Tạo việc từ Hôm nay có tự gán hạn hôm nay không, hay để trống?
 - Có cho chọn ngày đã qua làm hạn không?

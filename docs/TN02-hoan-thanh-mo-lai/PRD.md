@@ -180,6 +180,8 @@ AC03: Xoá một việc đã xong bằng vuốt trái như ở [TN01](../TN01-qu
 
 ## 10. Câu hỏi mở
 
+> Câu nào đã có giá trị ở mục 5 thì giá trị đó là **tạm chốt** `[giả định]` để dựng flow. Câu hỏi vẫn để mở cho đến khi PO xác nhận.
+
 - Có tự dọn việc đã xong sau 30 hay 90 ngày không?
 - Có hiệu ứng nhỏ khi xong hết việc hôm nay không?
 - Hoàn thành việc quá hạn có ghi nhận là "xong trễ" không?
