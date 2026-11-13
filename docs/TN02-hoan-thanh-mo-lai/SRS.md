@@ -13,7 +13,6 @@
 | Phạm vi | Ô tròn hoàn thành, vuốt phải, tab Đã xong, mở lại, xoá tất cả việc đã xong |
 | Ngoài phạm vi | Thống kê năng suất, streak, hoàn thành hàng loạt, tự dọn |
 | Nền tảng | App iOS / Android `[giả định]` |
-| Figma | `[chưa có]` |
 
 ## 2. User Story
 
@@ -257,7 +256,7 @@ sequenceDiagram
 | MSG-13 | Snackbar | Đã xoá {n} việc · Hoàn tác |
 | MSG-14 | **SCR-07** | Chưa có việc nào hoàn thành. Việc bạn làm xong sẽ hiện ở đây |
 
-MSG-07 dùng lại từ SRS TN01. Bản EN: `[chờ bổ sung]`.
+MSG-07 dùng lại từ SRS TN01.
 
 ## 10. Yêu cầu phi chức năng
 
