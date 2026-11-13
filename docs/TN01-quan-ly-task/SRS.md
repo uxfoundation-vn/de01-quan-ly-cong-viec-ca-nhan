@@ -1,8 +1,8 @@
-> **Mã:** DE01-TN01-SRS · **Trạng thái:** nháp · **Người viết:** Design (mock) · **PRD:** [PRD.md](PRD.md)
+> **Mã:** DE01-TN01-SRS · **Trạng thái:** đã chốt · **Người viết:** Design · **PRD:** [PRD.md](PRD.md)
 
 # UC-DE01-01 - Quản lý task: tạo, sửa, xoá
 
-> **Bản mock.** Giá trị `[giả định]` cần BA xác nhận. SRS này mô tả tạo, sửa, xoá việc và quản lý nhãn; hoàn thành việc xem [SRS TN02](../TN02-hoan-thanh-mo-lai/SRS.md); danh sách và tìm kiếm xem [SRS TN03](../TN03-xem-loc-tim-kiem/SRS.md).
+> SRS này mô tả tạo, sửa, xoá việc và quản lý nhãn; hoàn thành việc xem [SRS TN02](../TN02-hoan-thanh-mo-lai/SRS.md); danh sách và tìm kiếm xem [SRS TN03](../TN03-xem-loc-tim-kiem/SRS.md).
 
 ## 1. Tổng quan
 
@@ -12,7 +12,7 @@
 | Actor | Người dùng · Hệ thống (app và bộ nhớ trên thiết bị) |
 | Phạm vi | Tạo, sửa, xoá việc; tạo, đổi tên, xoá nhãn |
 | Ngoài phạm vi | Đồng bộ, chia sẻ, việc lặp lại, việc con, đính kèm, nhắc việc |
-| Nền tảng | App iOS / Android `[giả định]` |
+| Nền tảng | App iOS / Android |
 
 ## 2. User Story
 
@@ -30,16 +30,16 @@ Mã BR đánh số liên tục trong cả đề 1 (SRS TN02 tiếp từ BR-12, S
 
 | **Mã** | **Quy tắc** |
 | --- | --- |
-| BR-01 | **Tiêu đề** bắt buộc, 1–200 ký tự sau khi bỏ khoảng trắng đầu và cuối; chỉ có khoảng trắng → coi là rỗng `[giả định]` |
-| BR-02 | **Ghi chú** tối đa 2.000 ký tự; đủ giới hạn → không nhập thêm được, bộ đếm chuyển đỏ `[giả định]` |
+| BR-01 | **Tiêu đề** bắt buộc, 1–200 ký tự sau khi bỏ khoảng trắng đầu và cuối; chỉ có khoảng trắng → coi là rỗng |
+| BR-02 | **Ghi chú** tối đa 2.000 ký tự; đủ giới hạn → không nhập thêm được, bộ đếm chuyển đỏ |
 | BR-03 | **Hạn** gồm ngày (bắt buộc khi đặt hạn) và giờ (tuỳ chọn). Không có giờ → hạn tính đến 23:59 ngày đó. Cho chọn ngày đã qua; việc tạo ra sẽ ở trạng thái quá hạn |
 | BR-04 | **Ưu tiên**: Cao, Trung bình, Thấp, Không; mặc định Không |
-| BR-05 | **Nhãn**: tối đa 3 nhãn mỗi việc, 20 nhãn trong app; tên 1–20 ký tự, không trùng (không phân biệt hoa thường) `[giả định]`. Mỗi nhãn có **1 màu** chọn từ bảng 12 màu; nhãn mới tự nhận màu kế tiếp chưa dùng, đổi được ở **SCR-06**. Chip nhãn luôn hiện cả tên, không chỉ dựa vào màu |
-| BR-28 | **Bản nháp ô nhập** (UC-01 A4) tự điền lại khi mở **SCR-02** trong **12 giờ** kể từ lần sửa cuối. Quá 12 giờ → bản nháp chuyển vào **Bản nháp lưu trữ** (Cài đặt → Bản nháp), không tự điền nữa. Ở đó người dùng chạm để khôi phục vào ô nhập hoặc xoá; giữ tối đa 20 bản, bản cũ nhất bị xoá khi vượt `[giả định]`. Mở **SCR-02** khi đang có bản nháp còn hạn thì bản nháp còn hạn được ưu tiên |
-| BR-06 | **Giá trị mặc định khi tạo** theo danh sách đang mở: Hôm nay → hạn hôm nay; Sắp tới → hạn ngày mai; Tất cả → không hạn; đang lọc theo **đúng một** nhãn → gán sẵn nhãn đó; đang lọc từ 2 nhãn trở lên → không gán sẵn nhãn nào, vì bộ lọc nhiều nhãn là HOẶC (BR-24) và mỗi việc tối đa 3 nhãn (BR-05) `[giả định]` |
-| BR-07 | Sửa ở màn chi tiết **tự lưu** 500 ms sau lần gõ cuối hoặc khi rời trường `[giả định]`; không có nút Lưu. Việc mở từ "Mở rộng" khi chưa có tiêu đề hợp lệ thì **chưa được tạo**: lần tự lưu đầu tiên có tiêu đề hợp lệ (BR-01) mới tạo việc, trước đó không ghi gì vào danh sách |
+| BR-05 | **Nhãn**: tối đa 3 nhãn mỗi việc, 20 nhãn trong app; tên 1–20 ký tự, không trùng (không phân biệt hoa thường). Mỗi nhãn có **1 màu** chọn từ bảng 12 màu; nhãn mới tự nhận màu kế tiếp chưa dùng, đổi được ở **SCR-06**. Chip nhãn luôn hiện cả tên, không chỉ dựa vào màu |
+| BR-28 | **Bản nháp ô nhập** (UC-01 A4) tự điền lại khi mở **SCR-02** trong **12 giờ** kể từ lần sửa cuối. Quá 12 giờ → bản nháp chuyển vào **Bản nháp lưu trữ** (Cài đặt → Bản nháp), không tự điền nữa. Ở đó người dùng chạm để khôi phục vào ô nhập hoặc xoá; giữ tối đa 20 bản, bản cũ nhất bị xoá khi vượt. Mở **SCR-02** khi đang có bản nháp còn hạn thì bản nháp còn hạn được ưu tiên |
+| BR-06 | **Giá trị mặc định khi tạo** theo danh sách đang mở: Hôm nay → hạn hôm nay; Sắp tới → hạn ngày mai; Tất cả → không hạn; đang lọc theo **đúng một** nhãn → gán sẵn nhãn đó; đang lọc từ 2 nhãn trở lên → không gán sẵn nhãn nào, vì bộ lọc nhiều nhãn là HOẶC (BR-24) và mỗi việc tối đa 3 nhãn (BR-05) |
+| BR-07 | Sửa ở màn chi tiết **tự lưu** 500 ms sau lần gõ cuối hoặc khi rời trường; không có nút Lưu. Việc mở từ "Mở rộng" khi chưa có tiêu đề hợp lệ thì **chưa được tạo**: lần tự lưu đầu tiên có tiêu đề hợp lệ (BR-01) mới tạo việc, trước đó không ghi gì vào danh sách |
 | BR-08 | Tiêu đề bị xoá rỗng khi rời màn chi tiết: việc **đã tạo** → khôi phục tiêu đề hợp lệ gần nhất, hiện MSG-02; việc **chưa tạo** (mở từ "Mở rộng", chưa từng có tiêu đề hợp lệ) → không tạo việc, không hiện MSG-02, phần đã nhập được giữ thành bản nháp của **SCR-02** (UC-01 A4) |
-| BR-09 | **Xoá việc**: ẩn ngay, Hoàn tác trong 5 giây. Xoá vĩnh viễn khi hết 5 giây, khi có thao tác xoá khác, hoặc khi app chuyển xuống nền `[giả định]` |
+| BR-09 | **Xoá việc**: ẩn ngay, Hoàn tác trong 5 giây. Xoá vĩnh viễn khi hết 5 giây, khi có thao tác xoá khác, hoặc khi app chuyển xuống nền |
 | BR-10 | **Xoá nhãn**: gỡ nhãn khỏi mọi việc, không xoá việc; phải xác nhận (MSG-06) |
 | BR-11 | Mọi mốc giờ theo múi giờ thiết bị; mỗi việc lưu thời điểm tạo và sửa gần nhất |
 
@@ -233,7 +233,7 @@ flowchart TD
 | A1 | Bấm Hoàn tác trong 5 giây | Khôi phục về trạng thái và vị trí cũ, ẩn snackbar |
 | A2 | Xoá từ **SCR-03** | Đóng **SCR-03**, về danh sách rồi mới hiện snackbar |
 | A3 | Xoá việc khác khi snackbar còn | Việc trước xoá vĩnh viễn; snackbar mới cho việc sau |
-| A4 | App chuyển xuống nền trong 5 giây | Xoá vĩnh viễn ngay `[giả định]` |
+| A4 | App chuyển xuống nền trong 5 giây | Xoá vĩnh viễn ngay |
 
 ### UC-04 Quản lý nhãn
 
@@ -317,7 +317,7 @@ flowchart TD
 
 | **#** | **Thành phần** | **Loại** | **Hành vi** |
 | --- | --- | --- | --- |
-| 1 | Lối tắt | Chips | Hôm nay, Ngày mai, Cuối tuần (thứ Bảy), Tuần sau (thứ Hai) `[giả định]` |
+| 1 | Lối tắt | Chips | Hôm nay, Ngày mai, Cuối tuần (thứ Bảy), Tuần sau (thứ Hai) |
 | 2 | Lịch tháng | Calendar | Chọn ngày bất kỳ; ngày đã qua chọn được, hiện ghi chú "Việc sẽ hiện là quá hạn" |
 | 3 | Thêm giờ | Toggle + time picker | Tắt mặc định; bật mới hiện chọn giờ |
 | 4 | Bỏ hạn | Button text | Xoá hạn, chỉ hiện khi việc đang có hạn |
@@ -407,7 +407,7 @@ sequenceDiagram
 
 ## 10. Yêu cầu phi chức năng
 
-| **Mục** | **Yêu cầu** `[giả định]` |
+| **Mục** | **Yêu cầu** |
 | --- | --- |
 | Hiệu năng | Mở **SCR-02** ≤ 300 ms sau khi bấm "+"; lưu việc phản hồi ≤ 100 ms với 2.000 việc |
 | Offline | Toàn bộ chức năng chạy không cần mạng |

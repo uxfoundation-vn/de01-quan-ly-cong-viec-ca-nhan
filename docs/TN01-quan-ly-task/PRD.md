@@ -1,8 +1,6 @@
-> **Mã:** DE01-TN01-PRD · **Trạng thái:** nháp · **Người viết:** Design (mock) · **SRS:** [SRS.md](SRS.md)
+> **Mã:** DE01-TN01-PRD · **Trạng thái:** đã chốt · **Người viết:** Design · **SRS:** [SRS.md](SRS.md)
 
 # PRD Quản lý task: tạo, sửa, xoá việc (App quản lý công việc cá nhân)
-
-> **Bản mock.** Con số đánh dấu `[giả định]` dùng để dựng flow, cần PO xác nhận trước khi dùng.
 
 ## 1. Bối cảnh và vấn đề
 
@@ -22,8 +20,8 @@ App quản lý công việc cá nhân lưu dữ liệu trên máy, không cần 
 
 ### 1.3 Mục tiêu
 
-- Tạo một việc trong ≤ 5 giây kể từ khi bấm "+" `[giả định]`.
-- ≥ 50% việc có ít nhất một chi tiết: hạn, ưu tiên hoặc nhãn `[giả định]`.
+- Tạo một việc trong ≤ 5 giây kể từ khi bấm "+".
+- ≥ 50% việc có ít nhất một chi tiết: hạn, ưu tiên hoặc nhãn.
 - Không có trường hợp mất việc do xoá nhầm hay quên lưu.
 
 ## 2. Người dùng
@@ -71,7 +69,7 @@ Xoá một việc không hỏi "Bạn có chắc?" mà có Hoàn tác 5 giây. C
 
 ## 5. Quy tắc nghiệp vụ
 
-| **Quy tắc** | **Giá trị** `[giả định]` |
+| **Quy tắc** | **Giá trị** |
 | --- | --- |
 | Tiêu đề | Bắt buộc, 1–200 ký tự sau khi bỏ khoảng trắng đầu và cuối |
 | Ghi chú | Không bắt buộc, tối đa 2.000 ký tự |
@@ -182,7 +180,7 @@ AC02: Đổi tên ngay trên danh sách; tên trùng thì báo lỗi, không lư
 
 AC03: Xoá nhãn chỉ gỡ nhãn khỏi các việc, không xoá việc; hỏi xác nhận kèm số việc bị ảnh hưởng.
 
-## 8. Chỉ số theo dõi `[giả định]`
+## 8. Chỉ số theo dõi
 
 | **Chỉ số** | **Định nghĩa** | **Mục tiêu MVP** |
 | --- | --- | --- |

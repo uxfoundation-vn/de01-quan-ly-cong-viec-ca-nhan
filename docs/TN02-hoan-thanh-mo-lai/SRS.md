@@ -1,8 +1,8 @@
-> **Mã:** DE01-TN02-SRS · **Trạng thái:** nháp · **Người viết:** Design (mock) · **PRD:** [PRD.md](PRD.md)
+> **Mã:** DE01-TN02-SRS · **Trạng thái:** đã chốt · **Người viết:** Design · **PRD:** [PRD.md](PRD.md)
 
 # UC-DE01-02 - Hoàn thành và mở lại việc
 
-> **Bản mock.** Giá trị `[giả định]` cần BA xác nhận. Quy tắc chung về việc (tiêu đề, hạn, nhãn, xoá) giữ theo [SRS TN01](../TN01-quan-ly-task/SRS.md).
+> Quy tắc chung về việc (tiêu đề, hạn, nhãn, xoá) giữ theo [SRS TN01](../TN01-quan-ly-task/SRS.md).
 
 ## 1. Tổng quan
 
@@ -12,7 +12,7 @@
 | Actor | Người dùng · Hệ thống (app và bộ nhớ trên thiết bị) |
 | Phạm vi | Ô tròn hoàn thành, vuốt phải, tab Đã xong, mở lại, xoá tất cả việc đã xong |
 | Ngoài phạm vi | Thống kê năng suất, streak, hoàn thành hàng loạt, tự dọn |
-| Nền tảng | App iOS / Android `[giả định]` |
+| Nền tảng | App iOS / Android |
 
 ## 2. User Story
 
@@ -28,8 +28,8 @@
 
 | **Mã** | **Quy tắc** |
 | --- | --- |
-| BR-12 | Đánh dấu xong bằng: ô tròn trên dòng việc, vuốt phải quá **40%** chiều rộng dòng, hoặc ô tròn ở **SCR-03** `[giả định]` |
-| BR-13 | Sau khi tích: ô tròn đầy, tiêu đề gạch ngang, rung nhẹ; việc ở lại danh sách **1 giây** rồi mới rời. Tích lại trong 1 giây này → huỷ, không ghi gì `[giả định]` |
+| BR-12 | Đánh dấu xong bằng: ô tròn trên dòng việc, vuốt phải quá **40%** chiều rộng dòng, hoặc ô tròn ở **SCR-03** |
+| BR-13 | Sau khi tích: ô tròn đầy, tiêu đề gạch ngang, rung nhẹ; việc ở lại danh sách **1 giây** rồi mới rời. Tích lại trong 1 giây này → huỷ, không ghi gì |
 | BR-14 | Việc rời danh sách → lưu `DA_XONG`, ghi completed_at, hiện snackbar MSG-10 với Hoàn tác **5 giây**. Việc có hạn mà completed_at > hạn → ghi `completed_late = true` (**xong trễ**); mở lại thì xoá cờ này |
 | BR-15 | Hoàn tác hoặc mở lại → `CHUA_XONG`, xoá completed_at; giữ nguyên hạn, ưu tiên, nhãn. Hạn đã qua → hiện như `QUA_HAN` |
 | BR-16 | Tab Đã xong sắp xếp theo completed_at giảm dần, nhóm theo ngày: Hôm nay, Hôm qua, {thứ, dd/mm} |
@@ -225,7 +225,7 @@ flowchart TD
 | --- | --- | --- | --- |
 | \[TaskComplete\] | task_id | status = DONE, completed_at, completed_late | Gọi sau 1 giây (BR-13) |
 | \[TaskReopen\] | task_id | status = OPEN, completed_at = rỗng | Hoàn tác hoặc mở lại (BR-15) |
-| \[TaskListCompleted\] | – | Danh sách nhóm theo ngày | BR-16, tải dần 50 việc mỗi lần `[giả định]` |
+| \[TaskListCompleted\] | – | Danh sách nhóm theo ngày | BR-16, tải dần 50 việc mỗi lần |
 | \[TaskDeleteCompleted\] | – | Số việc đã xoá | Chỉ gọi khi hết thời gian hoàn tác (BR-17) |
 
 ```mermaid
@@ -260,7 +260,7 @@ MSG-07 dùng lại từ SRS TN01.
 
 ## 10. Yêu cầu phi chức năng
 
-| **Mục** | **Yêu cầu** `[giả định]` |
+| **Mục** | **Yêu cầu** |
 | --- | --- |
 | Hiệu năng | Phản hồi giao diện khi tích ≤ 100 ms; hiệu ứng 200–300 ms; **SCR-07** mở ≤ 500 ms với 2.000 việc đã xong |
 | Chuyển động | Tôn trọng cài đặt giảm chuyển động của hệ thống: bỏ hiệu ứng, giữ thay đổi trạng thái |

@@ -1,8 +1,6 @@
-> **Mã:** DE01-TN02-PRD · **Trạng thái:** nháp · **Người viết:** Design (mock) · **SRS:** [SRS.md](SRS.md)
+> **Mã:** DE01-TN02-PRD · **Trạng thái:** đã chốt · **Người viết:** Design · **SRS:** [SRS.md](SRS.md)
 
 # PRD Hoàn thành và mở lại việc (App quản lý công việc cá nhân)
-
-> **Bản mock.** Con số đánh dấu `[giả định]` dùng để dựng flow, cần PO xác nhận trước khi dùng.
 
 ## 1. Bối cảnh và vấn đề
 
@@ -24,7 +22,7 @@ Sau khi ghi việc ([TN01](../TN01-quan-ly-task/PRD.md)), thao tác tiếp theo 
 
 - Đánh dấu xong bằng 1 chạm hoặc 1 lần vuốt, ngay trên danh sách.
 - Lấy lại việc tích nhầm bằng ≤ 1 chạm.
-- Tỉ lệ việc được hoàn thành trong 7 ngày ≥ 40% `[giả định]`.
+- Tỉ lệ việc được hoàn thành trong 7 ngày ≥ 40%.
 
 ## 2. Người dùng
 
@@ -59,7 +57,7 @@ Không mở màn mới, không hỏi xác nhận. Ô tròn có vùng chạm đ�
 
 ### 4.2 Phản hồi rõ ràng
 
-Tích xong thấy ngay: ô tròn đầy, tiêu đề gạch ngang, rung nhẹ, rồi việc rời danh sách sau 1 giây `[giả định]`. Người dùng biết chắc thao tác đã ăn.
+Tích xong thấy ngay: ô tròn đầy, tiêu đề gạch ngang, rung nhẹ, rồi việc rời danh sách sau 1 giây. Người dùng biết chắc thao tác đã ăn.
 
 ### 4.3 Lấy lại dễ dàng
 
@@ -71,7 +69,7 @@ Không popup, không âm thanh mặc định. Chỉ khi xong hết việc hôm n
 
 ## 5. Quy tắc nghiệp vụ
 
-| **Quy tắc** | **Giá trị** `[giả định]` |
+| **Quy tắc** | **Giá trị** |
 | --- | --- |
 | Ngưỡng vuốt phải để hoàn thành | 40% chiều rộng dòng việc |
 | Thời gian giữ việc trên danh sách sau khi tích | 1 giây; tích lại trong thời gian này là huỷ |
@@ -159,7 +157,7 @@ AC02: Hỏi xác nhận kèm số việc; xác nhận xong có Hoàn tác 5 giâ
 
 AC03: Xoá một việc đã xong bằng vuốt trái như ở [TN01](../TN01-quan-ly-task/PRD.md).
 
-## 8. Chỉ số theo dõi `[giả định]`
+## 8. Chỉ số theo dõi
 
 | **Chỉ số** | **Định nghĩa** | **Mục tiêu MVP** |
 | --- | --- | --- |
