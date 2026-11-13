@@ -13,7 +13,6 @@
 | Phạm vi | Danh sách Hôm nay, Sắp tới, Tất cả; lọc; sắp xếp; tìm kiếm; các màn trống |
 | Ngoài phạm vi | Xem dạng lịch, Kanban, kéo thả sắp xếp, lưu bộ lọc, lịch sử tìm kiếm |
 | Nền tảng | App iOS / Android `[giả định]` |
-| Figma | `[chưa có]` |
 
 ## 2. User Story
 
@@ -299,8 +298,6 @@ sequenceDiagram
 | MSG-18 | **SCR-01** Tất cả | Không còn việc nào đang chờ. \[Thêm việc\] |
 | MSG-19 | **SCR-01** `LOC_KHONG_CO` | Không có việc nào khớp bộ lọc. \[Xoá lọc\] |
 | MSG-20 | **SCR-09** | Không tìm thấy việc nào cho "{từ khoá}". Thử từ khoá khác hoặc kiểm tra chính tả |
-
-Bản EN: `[chờ bổ sung]`.
 
 ## 10. Yêu cầu phi chức năng
 

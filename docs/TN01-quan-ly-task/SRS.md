@@ -13,7 +13,6 @@
 | Phạm vi | Tạo, sửa, xoá việc; tạo, đổi tên, xoá nhãn |
 | Ngoài phạm vi | Đồng bộ, chia sẻ, việc lặp lại, việc con, đính kèm, nhắc việc |
 | Nền tảng | App iOS / Android `[giả định]` |
-| Figma | `[chưa có]` |
 
 ## 2. User Story
 
@@ -405,8 +404,6 @@ sequenceDiagram
 | MSG-08 | Snackbar | Đã xoá "{tiêu đề, rút gọn 30 ký tự}" · Hoàn tác |
 | MSG-09 | Inline | Nhãn này đã có |
 | MSG-21 | Popup | Ô nhập đang có bản nháp khác. Thay bằng bản nháp này? Bản nháp hiện tại sẽ được chuyển vào lưu trữ. \[Huỷ\] \[Thay thế\] |
-
-Bản EN: `[chờ bổ sung]`.
 
 ## 10. Yêu cầu phi chức năng
 
